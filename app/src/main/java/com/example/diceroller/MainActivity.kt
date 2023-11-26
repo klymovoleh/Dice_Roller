@@ -2,7 +2,7 @@ package com.example.diceroller
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 /**
@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
      * Roll the dice and update the screen with the result.
      */
     private fun rollDice() {
-        // Create new Dice objects with 6 and 20 sides and roll its
-        val firstDice = Dice(6)
-        val firstDiceRoll = firstDice.roll()
+        // Create new Dice object with 6 side and roll it
+        val dice = Dice(6)
+        val diceRoll = dice.roll()
 
         // Update the screen with the dice roll
-        var resultTextView: TextView = findViewById(R.id.textView)
-        resultTextView.text = firstDiceRoll.toString()
+        var diceImage: ImageView = findViewById(R.id.imageView)
+        diceImage.setImageResource(R.drawable.dice_2)
     }
 }
 
