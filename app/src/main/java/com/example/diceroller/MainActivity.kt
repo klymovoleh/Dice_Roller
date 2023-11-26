@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
      * Roll the dice and update the screen with the result.
      */
     private fun rollDice() {
-        // Create new Dice object with 6 sides and roll it
-        val dice = Dice(6)
-        val diceRoll = dice.roll()
+        // Create new Dice objects with 6 and 20 sides and roll its
+        val firstDice = Dice(6)
+        val firstDiceRoll = firstDice.roll()
 
         // Update the screen with the dice roll
-        val resultTextView: TextView = findViewById(R.id.textView)
-        resultTextView.text = diceRoll.toString()
+        var resultTextView: TextView = findViewById(R.id.textView)
+        resultTextView.text = firstDiceRoll.toString()
     }
 }
 
