@@ -35,8 +35,8 @@ class MainActivity : AppCompatActivity() {
         val secondDiceImage: ImageView = findViewById(R.id.imageView2)
 
         // Update the ImageView with the correct drawable resource ID
-        firstDiceImage.setImageResource(firstDiceImage.setImageResource(firstDiceRoll))
-        secondDiceImage.setImageResource(secondDiceImage.setImageResource(secondDiceRoll))
+        firstDiceImage.setImageResource(numOfSide(firstDiceRoll))
+        secondDiceImage.setImageResource(numOfSide(secondDiceRoll))
 
         // Update the content description
         firstDiceImage.contentDescription = firstDiceRoll.toString()
@@ -45,14 +45,14 @@ class MainActivity : AppCompatActivity() {
 }
 
 // Determine which drawable resource ID to use based on the dice roll
-private fun ImageView.setImageResource(number: Any): String {
+private fun numOfSide(number: Int): Int {
     return when (number) {
-        1 -> "R.drawable.dice_1"
-        2 -> "R.drawable.dice_2"
-        3 -> "R.drawable.dice_3"
-        4 -> "R.drawable.dice_4"
-        5 -> "R.drawable.dice_5"
-        else -> "R.drawable.dice_6"
+        1 -> R.drawable.dice_1
+        2 -> R.drawable.dice_2
+        3 -> R.drawable.dice_3
+        4 -> R.drawable.dice_4
+        5 -> R.drawable.dice_5
+        else -> R.drawable.dice_6
     }
 }
 
