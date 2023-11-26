@@ -27,26 +27,32 @@ class MainActivity : AppCompatActivity() {
     private fun rollDice() {
         // Create new Dice object with 6 side and roll it
         val dice = Dice(6)
-        val diceRoll = dice.roll()
+        val firstDiceRoll = dice.roll()
+        val secondDiceRoll = dice.roll()
 
         // Find the ImageView in the layout
-        val diceImage: ImageView = findViewById(R.id.imageView)
-
-        // Determine which drawable resource ID to use based on the dice roll
-        val drawableResource = when (diceRoll) {
-            1 -> R.drawable.dice_1
-            2 -> R.drawable.dice_2
-            3 -> R.drawable.dice_3
-            4 -> R.drawable.dice_4
-            5 -> R.drawable.dice_5
-            else -> R.drawable.dice_6
-        }
+        val firstDiceImage: ImageView = findViewById(R.id.imageView)
+        val secondDiceImage: ImageView = findViewById(R.id.imageView2)
 
         // Update the ImageView with the correct drawable resource ID
-        diceImage.setImageResource(drawableResource)
+        firstDiceImage.setImageResource(firstDiceImage.setImageResource(firstDiceRoll))
+        secondDiceImage.setImageResource(secondDiceImage.setImageResource(secondDiceRoll))
 
         // Update the content description
-        diceImage.contentDescription = diceRoll.toString()
+        firstDiceImage.contentDescription = firstDiceRoll.toString()
+        secondDiceImage.contentDescription = secondDiceRoll.toString()
+    }
+}
+
+// Determine which drawable resource ID to use based on the dice roll
+private fun ImageView.setImageResource(number: Any): String {
+    return when (number) {
+        1 -> "R.drawable.dice_1"
+        2 -> "R.drawable.dice_2"
+        3 -> "R.drawable.dice_3"
+        4 -> "R.drawable.dice_4"
+        5 -> "R.drawable.dice_5"
+        else -> "R.drawable.dice_6"
     }
 }
 
